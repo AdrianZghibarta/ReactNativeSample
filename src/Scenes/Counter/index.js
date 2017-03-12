@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import HelloMessage from "../../Utils/HelloMessage";
+import FullSpinner from "../../Components/FullSpinner";
 
 export default class CounterScene extends Component {
 
@@ -61,6 +62,7 @@ export default class CounterScene extends Component {
             {'+1'}
           </Text>
         </TouchableHighlight>
+        <FullSpinner isVisible={true}/>
       </View>
     );
   }

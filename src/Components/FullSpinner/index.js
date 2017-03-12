@@ -7,8 +7,7 @@ import {
 } from 'react-native';
 
 import Spinner from 'react-native-spinkit';
-import Common from 'common';
-import Strings from 'localization';
+import Common from '../../Resources/Common';
 
 /**
  * Full dimension spinner view
@@ -51,7 +50,7 @@ export default class FullSpinner extends Component {
         <Text
           style={[styles.titleText, {color: generalColor}]}
         >
-          {this.props.showLoadingTitle ? Strings.loading : this.props.title}
+          {this.props.showLoadingTitle ? 'Loading..' : this.props.title}
         </Text>
       );
     }
@@ -60,7 +59,7 @@ export default class FullSpinner extends Component {
       return(
         <View
           style={[Common.Styles.fullDimensions, styles.rootView, {
-            backgroundColor: this.props.isTransparent ? Common.Colors.greyTransparentBackgroundColor 
+            backgroundColor: this.props.isTransparent ? Common.Colors.whiteFocusColorM 
             : Common.Colors.grey900
           }, this.props.style]}
         >
@@ -95,8 +94,8 @@ FullSpinner.propTypes = {
 
 FullSpinner.defaultProps = {
   isVisible: true,
-  isTransparent: false,
-  showLoadingTitle: false,
+  isTransparent: true,
+  showLoadingTitle: true,
   type: '9CubeGrid',
   size: 70,
 };
@@ -119,7 +118,7 @@ const styles = StyleSheet.create({
   
   titleText: {
     marginTop: 30,
-    fontFamily: Common.Fonts.ExpletusSans_Bold,
+    //fontFamily: Common.Fonts.ExpletusSans_Bold,
     fontSize: 30,
     textAlign: 'center',
   },
