@@ -1,18 +1,14 @@
 'use strict';
-import React, { 
-  Component
-} from 'react';
+import React from 'react';
 import { 
-  StyleSheet, 
-  Text,
-  TouchableHighlight, 
-  View, 
+  StyleSheet,
+  TouchableHighlight,
   Image,
   Dimensions,
   Platform
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
+import Common from '../../Resources/Common';
 const isAndroid = Platform.OS === 'android';
 
 /**
@@ -75,7 +71,7 @@ const BarRouteMapper = {
     return (
       <Image
         style={[styles.titleImage, androidCustomStyle]}
-        source={require('images/logo-minified/img.png')}
+        source={require('../../Resources/Images/ReactLogo/img.png')}
         resizeMode='contain'
       />
     ); 
@@ -105,7 +101,7 @@ const styles = StyleSheet.create({
   },
   
   buttonImage: {
-    color: 'white',
+    color: Common.Colors.blue,
   },
   
   buttonImageLeft: {

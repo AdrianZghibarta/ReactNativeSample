@@ -92,6 +92,14 @@ class CommonColors {
   get green() {
     return '#00DF58';
   }
+  
+  get blue() {
+    return '#61DAFB';
+  }
+  
+  get blueFocus() {
+    return '#61DAFB88';
+  }
 }
 
 const Colors = new CommonColors();

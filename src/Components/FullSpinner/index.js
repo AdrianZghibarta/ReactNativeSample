@@ -42,7 +42,7 @@ export default class FullSpinner extends Component {
   render() {
     
     let spinnerSize = this.props.size;
-    let generalColor = Common.Colors.yellowThemeColor;
+    let generalColor = Common.Colors.blue;
     
     let textView = null;
     if (this.props.title || this.props.showLoadingTitle) {
@@ -59,7 +59,7 @@ export default class FullSpinner extends Component {
       return(
         <View
           style={[Common.Styles.fullDimensions, styles.rootView, {
-            backgroundColor: this.props.isTransparent ? Common.Colors.whiteFocusColorM 
+            backgroundColor: this.props.isTransparent ? 'transparent' 
             : Common.Colors.grey900
           }, this.props.style]}
         >
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   
   titleText: {
     marginTop: 30,
-    //fontFamily: Common.Fonts.ExpletusSans_Bold,
+    fontFamily: Common.Fonts.ExpletusSans_Bold,
     fontSize: 30,
     textAlign: 'center',
   },

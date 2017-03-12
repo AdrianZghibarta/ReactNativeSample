@@ -1,12 +1,12 @@
 "use strict";
 import React, { Component } from 'react';
-import CounterScene from './Counter';
+import Navigation from '../Components/Navigation';
 
 export default class App extends Component {
   
   render() {
     return (
-      <CounterScene/>
+      <Navigation.SceneNavigator/>
     );
   }
 }

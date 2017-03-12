@@ -9,6 +9,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.hellomessage.HelloMessagePackage;// <- Import your package
 
 import java.util.Arrays;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
               new MainReactPackage(),
               new RNSpinkitPackage(),
+              new VectorIconsPackage(),
               new HelloMessagePackage()// <- Register your package
       );
     }

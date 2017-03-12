@@ -4,20 +4,15 @@ import {
   Navigator, 
   StyleSheet, 
 } from 'react-native';
-import Common from 'common';
+import Common from '../../Resources/Common';
 import SceneId from './scene-id';
 import SceneRoute from './scene-route';
 import BarRouteMapper from './bar-route-mapper';
 
-import StartScene from 'start';
-import SignInScene from 'sign-in';
-import Subscription from 'subscription';
-import DashboardScene from 'dashboard';
-import ProfileReadonlyScene from 'profile-readonly';
-import ProfileEditScene from 'profile-edit';
-import MeetingAddScene from 'meeting-add';
-import PrescriptionAddScene from 'prescription-add';
-import TransformationAddScene from 'transformation-add';
+import CounterScene from '../../Scenes/Counter';
+import NewsListScene from '../../Scenes/NewsList';
+import RegisterScene from '../../Scenes/Register';
+import MainScene from '../../Scenes/Main';
 
 /**
  * Custom Navigator components that actually returns a Navigator
@@ -70,107 +65,37 @@ export default class SceneNavigator extends Component {
     
     switch (sceneRoute.id) {
 
-      case SceneId.Start:
+      case SceneId.Main:
         return(
-          <StartScene
+          <MainScene
             navigator={navigator}
             sceneInfo={sceneRoute.info}
             sceneRoute={sceneRoute}
             style={[navBarStyle, styles.sceneDefaultStyle]}
           />
         );
-        
-      case SceneId.SignIn:
+      case SceneId.Counter:
         return(
-          <SignInScene
+          <CounterScene 
             navigator={navigator}
             sceneInfo={sceneRoute.info}
             sceneRoute={sceneRoute}
             style={[navBarStyle, styles.sceneDefaultStyle]}
           />
         );
-
-      case SceneId.Subscription:
+      case SceneId.Register:
         return(
-          <Subscription
-            navigator = { navigator }
-            sceneInfo = { sceneRoute.info }
-            sceneRoute={sceneRoute}
-            style = {[navBarStyle, styles.sceneDefaultStyle]}
-          />
-         );
-        
-      case SceneId.MainNavigator:
-        return (
-          <SceneNavigator
-            initialRoute={new SceneRoute({
-              id: SceneId.Dashboard, 
-              hideLeftButton: true,
-              rightButtonIcon: 'person'
-            })}
-          />
-        );
-
-      case SceneId.Dashboard:
-        return (
-          <DashboardScene
+          <RegisterScene
             navigator={navigator}
-            sceneNavigator={this}
             sceneInfo={sceneRoute.info}
             sceneRoute={sceneRoute}
             style={[navBarStyle, styles.sceneDefaultStyle]}
           />
         );
-        
-      case SceneId.ProfileReadonly:
-        return (
-          <ProfileReadonlyScene
-            navigator={navigator}
-            sceneNavigator={this}
-            sceneInfo={sceneRoute.info}
-            sceneRoute={sceneRoute}
-            style={[navBarStyle, styles.sceneDefaultStyle]}
-          />
-        );
-
-      case SceneId.ProfileEdit:
-        return (
-          <ProfileEditScene
-            navigator={navigator}
-            sceneNavigator={this}
-            sceneInfo={sceneRoute.info}
-            sceneRoute={sceneRoute}
-            style={[navBarStyle, styles.sceneDefaultStyle]}
-          />
-        );
-
-      case SceneId.MeetingAdd:
-        return (
-          <MeetingAddScene
-            navigator={navigator}
-            sceneNavigator={this}
-            sceneInfo={sceneRoute.info}
-            sceneRoute={sceneRoute}
-            style={[navBarStyle, styles.sceneDefaultStyle]}
-          />
-        );
-        
-      case SceneId.PrescriptionAdd:
+      case SceneId.NewsList:
         return(
-          <PrescriptionAddScene
+          <NewsListScene
             navigator={navigator}
-            sceneNavigator={this}
-            sceneInfo={sceneRoute.info}
-            sceneRoute={sceneRoute}
-            style={[navBarStyle, styles.sceneDefaultStyle]}
-          />
-        );
-
-      case SceneId.TransformationAdd:
-        return(
-          <TransformationAddScene
-            navigator={navigator}
-            sceneNavigator={this}
             sceneInfo={sceneRoute.info}
             sceneRoute={sceneRoute}
             style={[navBarStyle, styles.sceneDefaultStyle]}
@@ -218,7 +143,7 @@ SceneNavigator.propTypes = {
 };
 
 SceneNavigator.defaultProps = {
-  initialRoute: new SceneRoute({id: SceneId.Start, title: 'Start', hideLeftButton: true}),
+  initialRoute: new SceneRoute({id: SceneId.Main, title: 'Main', hideLeftButton: true}),
   showNavigationBar: true
 };
 

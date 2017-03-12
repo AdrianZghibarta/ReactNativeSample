@@ -3,20 +3,10 @@
  * @type {Object}
  */
 const SceneId = {
-  
-  // - Single Scenes
-  Start: 'Start',
-  SignIn: 'SignIn',
-  Subscription: 'Subscription',
-  Dashboard: 'Dashboard',
-  ProfileReadonly: 'ProfileReadonly',
-  ProfileEdit: 'ProfileEdit',
-  MeetingAdd: 'MeetingAdd',
-  PrescriptionAdd: 'PrescriptionAdd',
-  TransformationAdd: 'TransformationAdd',
-  
-  // - Nested Scene Navigators
-  MainNavigator: 'MainNavigator',
+  Counter: 'Counter',
+  NewsList: 'NewsList',
+  Register: 'Register',
+  Main: 'Main',
 };
 
 export default SceneId;

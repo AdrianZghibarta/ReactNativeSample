@@ -1,14 +1,14 @@
 "use strict";
 import React, { Component } from 'react';
 import {
-  TouchableHighlight,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
 } from 'react-native';
 
-import HelloMessage from "../../Utils/HelloMessage";
-import FullSpinner from "../../Components/FullSpinner";
+import Button from "../../Components/Button";
+import Common from "../../Resources/Common";
 
 export default class CounterScene extends Component {
 
@@ -19,50 +19,24 @@ export default class CounterScene extends Component {
       counterValue: 0,
     };
   }
-  
-  static showGeneralMessage() {
-    HelloMessage.getGeneralMessage((error, message) => {
-      if (error) {
-        alert(error.message);
-      }
-      else {
-        alert(message);
-      }
-    });
-  }
-  
-  static async showHelloMessage() {
-    try {
-      let helloMessage = await HelloMessage.getMessage('Senior Adrian');
-      alert(helloMessage);
-    }
-    catch(error) {
-      alert(error.message);
-    }
-  }
 
   render() {
     return (
       <View style={[styles.rootView, this.props.style]}>
+
+        <Image source={require("../../Resources/Images/BackImage/img.jpg")} style={[Common.Styles.backgroundImage]}/>
+        
         <Text style={[styles.titleText]}>
           {this.props.title}
         </Text>
         <Text style={[styles.counterText]}>
           {'Counter value: ' + this.state.counterValue}
         </Text>
-        <TouchableHighlight
-          underlayColor="green"
-          style={[styles.incrementButton]}
-          onPress={() => {
-            this.setState({counterValue: ++this.state.counterValue});
-            CounterScene.showGeneralMessage();
-          }}
-        >
-          <Text style={[styles.buttonText]}>
-            {'+1'}
-          </Text>
-        </TouchableHighlight>
-        <FullSpinner isVisible={true}/>
+        <Button 
+          title="Tap me.." 
+          onPress={() => this.setState({counterValue: ++this.state.counterValue})}
+        />
+        
       </View>
     );
   }
@@ -72,35 +46,32 @@ CounterScene.propTypes = {
   title: React.PropTypes.string,
 };
 CounterScene.defaultProps = {
-  title: 'Simple Incrementer App'
+  title: 'A simple tap counter'
 };
 
 const styles = StyleSheet.create({
+  
   rootView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
   },
+  
   titleText: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 25,
+    fontFamily: Common.Fonts.ExpletusSans_Bold,
+    color: Common.Colors.blue,
+    backgroundColor: 'transparent',
   },
+  
   counterText: {
     fontSize: 18,
-    fontWeight: 'bold',
-    fontStyle: 'italic',
     margin: 15,
+    fontFamily: Common.Fonts.ExpletusSans_Bold,
+    color: Common.Colors.blue,
+    backgroundColor: 'transparent',
   },
-  incrementButton: {
-    padding: 15,
-    borderRadius: 5,
-    backgroundColor: 'blue',
-  },
-  buttonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: 'white',
-  }
+  
 });
 
